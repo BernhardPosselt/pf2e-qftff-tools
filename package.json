@@ -1,0 +1,12 @@
+{
+  "name": "pf2e-qftff",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "git@github.com:BernhardPosselt/pf2e-qftff-tools.git",
+  "author": "Bernhard Posselt <bernhard@posselt.at>",
+  "license": "AGPL3",
+  "private": true,
+  "scripts": {
+    "build-release": "bash release.sh"
+  }
+}
