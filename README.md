@@ -18,3 +18,7 @@ Activate the module in FoundryVTT.
 * A macro to roll random encounters for Burning Tundra
   
   ![Macro](./docs/img/burning-tundra-random-encounter-macro.png)
+
+* A macro to roll random encounters from the GMG
+
+  ![Macro](./docs/img/hexploration-random-encounter-macro.png)
