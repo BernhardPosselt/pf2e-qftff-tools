@@ -5,23 +5,24 @@
   "author": "Bernhard Posselt",
   "version": "0.0.1",
   "minimumCoreVersion": "9",
+  "compatibleCoreVersion": "9.269",
   "esmodules": [
     "src/index.mjs"
   ],
   "url": "https://github.com/BernhardPosselt/pf2e-qftff",
-  "license": "./LICENSE",
+  "license": "LICENSE",
   "packs": [
     {
       "name": "burning-tundra-random-encounters",
       "label": "Burning Tundra Random Encounters",
-      "path": "./packs/burning-tundra-random-encounters.db",
+      "path": "packs/burning-tundra-random-encounters.db",
       "entity": "RollTable",
       "type": "RollTable"
     },
     {
       "name": "qftff-macros",
       "label": "Quest for the Frozen Flame Macros",
-      "path": "./packs/macros.db",
+      "path": "packs/macros.db",
       "entity": "Macro",
       "type": "Macro"
     }
