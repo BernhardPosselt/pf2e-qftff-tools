@@ -15,6 +15,8 @@ mkdir -p release-manifests/
 # create new manifest file
 cp module.json "$new_module_json"
 sed -i "s/\"version\":.*/\"version\": \"$version\",/g" "$new_module_json"
+sed -i "s/\"manifest\":.*/\"manifest\": \"https:\/\/raw.githubusercontent.com\/BernhardPosselt\/pf2e-qftff-tools\/master\/release-manifests\/module-$version.json\",/g" "$new_module_json"
+sed -i "s/\"download\":.*/\"download\": \"https:\/\/github.com\/BernhardPosselt\/pf2e-qftff-tools\/releases\/download\/$version\/release.zip\"/g" "$new_module_json"
 
 # create archive
 cp "$new_module_json" build/pf2e-qftff-tools/
