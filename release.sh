@@ -19,7 +19,7 @@ sed -i "s/\"manifest\":.*/\"manifest\": \"https:\/\/raw.githubusercontent.com\/B
 sed -i "s/\"download\":.*/\"download\": \"https:\/\/github.com\/BernhardPosselt\/pf2e-qftff-tools\/releases\/download\/$version\/release.zip\"/g" "$new_module_json"
 
 # create archive
-cp "$new_module_json" build/pf2e-qftff-tools/
+cp "$new_module_json" build/pf2e-qftff-tools/module.json
 cp -r packs src/ build/pf2e-qftff-tools/
 cd build
 zip -r release.zip pf2e-qftff-tools
