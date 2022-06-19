@@ -6,6 +6,14 @@ Tools for running book 3 of Quest for the Frozen Flame
 
 ## Installation
 
+### Manifest URL
+
+When installing the module, paste the url directly into the **Manifest URL** input box and hit **Install**. Make sure to adjust the version to the correct one:
+
+    https://raw.githubusercontent.com/BernhardPosselt/pf2e-qftff-tools/master/release-manifests/module-0.0.1.json
+
+### Git
+
 Clone this repository into your installation's module folder:
 
     cd ~/.local/share/FoundryVTT/Data/modules
