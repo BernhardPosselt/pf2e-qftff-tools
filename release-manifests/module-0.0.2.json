@@ -3,7 +3,7 @@
   "title": "Pathfinder - Quest for the Frozen Flame Tools",
   "description": "A collection of utilities to run Quest for the Frozen Flame",
   "author": "Bernhard Posselt",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "minimumCoreVersion": "9",
   "compatibleCoreVersion": "9.269",
   "esmodules": [
@@ -41,6 +41,6 @@
       "type": "Macro"
     }
   ],
-  "manifest": "",
-  "download": ""
+  "manifest": "https://raw.githubusercontent.com/BernhardPosselt/pf2e-qftff-tools/master/release-manifests/module-0.0.2.json",
+  "download": "https://github.com/BernhardPosselt/pf2e-qftff-tools/releases/download/0.0.2/release.zip"
 }

@@ -20,7 +20,8 @@ sed -i "s/\"download\":.*/\"download\": \"https:\/\/github.com\/BernhardPosselt\
 
 # create archive
 cp "$new_module_json" build/pf2e-qftff-tools/module.json
-cp -r packs src/ build/pf2e-qftff-tools/
+cp README.md LICENSE OpenGameLicense.md build/pf2e-qftff-tools/
+cp -r packs/ maps/ src/ build/pf2e-qftff-tools/
 cd build
 zip -r release.zip pf2e-qftff-tools
 cd -
