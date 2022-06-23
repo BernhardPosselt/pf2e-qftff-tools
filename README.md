@@ -34,7 +34,7 @@ Activate the module in FoundryVTT.
 
 ### Maps
 
-**Note**: This module does not include maps that are present in the PDF. It's expected that you use PDF2Foundry to import the PDFs to get the original maps. This module bundles all useful, remaining apps that come up in random encounters or don't have a map.
+**Note**: This module does not include maps that are present in the PDF. It's expected that you use PDF2Foundry to import the PDFs to get the original maps. This module bundles all remaining maps that come up in various encounters but don't have a map which are a ton.
 
 PS: I'm a developer first and foremost and my art skills are pretty bad ;)
 
