@@ -32,7 +32,6 @@ class CompletedEncounterStorage {
             Object.entries(onlyHappensOnceEncounterDefaults)
                 .map(([key]) => [key, game.settings.get("pf2e-qftff-tools", `burningTundraEncounter.${key}`)])
         );
-        console.log(checklist);
         if (checklist) {
             return checklist;
         } else {
@@ -41,10 +40,15 @@ class CompletedEncounterStorage {
         }
     }
 
+    getCheckedOff() {
+        return Object.entries(this.getChecklist())
+            .filter(([_, value]) => value)
+            .map(([key]) => key);
+    }
+
     setChecklist(data) {
         Object.entries(data)
             .forEach(([key, value]) => {
-                console.log('set', `burningTundraEncounter.${key}`, value)
                 game.settings.set("pf2e-qftff-tools", `burningTundraEncounter.${key}`, value);
             });
     }
@@ -54,13 +58,11 @@ class CompletedEncounterStorage {
     }
 }
 
-class CompletedEncounterChecklist extends FormApplication {
-    #storage = new CompletedEncounterStorage();
+const checklist = new CompletedEncounterStorage();
 
+class CompletedEncounterChecklist extends FormApplication {
     static get defaultOptions() {
         const options = super.defaultOptions;
-        // options.id = "npc-skills-selector";
-        // options.classes = ["pf2e", "npc"];
         options.title = 'Encounter Checklist';
         options.template = "modules/pf2e-qftff-tools/templates/completed-encounter-checklist.html";
         options.width = "auto";
@@ -69,12 +71,12 @@ class CompletedEncounterChecklist extends FormApplication {
 
     getData() {
         return {
-            checklist: this.#storage.getChecklist()
+            checklist: checklist.getChecklist()
         };
     }
 
     _updateObject(_event, formData) {
-        this.#storage.setChecklist(formData);
+        checklist.setChecklist(formData);
     }
 
     activateListeners($form) {
@@ -97,5 +99,15 @@ export function burningTundraEncountersMacro() {
         travelMethods,
         terrainTypesKey: 'burningTundra.terrain',
         travelMethodKey: 'burningTundra.method',
+        customRender: async ({table, draw}) => {
+            const {results} = draw;
+            const text = results[0].data.text;
+            const checkedOff = checklist.getCheckedOff();
+            const checkedOffValue = checkedOff.find(checked => text.startsWith(checked));
+            if (checkedOffValue) {
+                results[0].data.text = `${checkedOffValue} already happened, nothing happens!`;
+            }
+            await table.toMessage(results, {roll: draw.roll});
+        }
     });
 }

@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.4] - 2022-06-25
+### Changed
+
+* Checked off encounters don't happen anymore
+
 ## [0.0.3] - 2022-06-25
 ### Added
 

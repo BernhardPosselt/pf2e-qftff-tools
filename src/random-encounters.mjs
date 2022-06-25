@@ -1,13 +1,19 @@
-async function rollCompendiumTable(compendiumName, tableName, rollMode) {
+async function rollCompendiumTable(compendiumName, tableName, rollMode, displayChat) {
     const compendium = await game.packs.get(compendiumName, {strict: true});
     const documents = await compendium.getDocuments({});
     const table = documents.find(document => document.name === tableName);
-    table.draw({rollMode});
+    return {
+        table,
+        draw: await table.draw({rollMode, displayChat})
+    };
 }
 
-function rollWorldTable(tableName, rollMode) {
+async function rollWorldTable(tableName, rollMode, displayChat) {
     const table = game.tables?.getName(tableName);
-    table.draw({rollMode});
+    return {
+        table,
+        draw: await table.draw({rollMode, displayChat})
+    };
 }
 
 function renderOptions(options, lastSelectedIndex) {
@@ -62,6 +68,7 @@ export function showPopup(
         terrainTypesKey,
         travelMethodKey,
         rollTableName,
+        customRender,
     }
 ) {
     const tpl = renderTemplate({
@@ -95,10 +102,15 @@ export function showPopup(
                     const dieRoll = await new Roll("1d20").evaluate();
                     await dieRoll.toMessage(undefined, {rollMode});
                     if (dieRoll.result >= dc) {
+                        const displayChat = customRender === undefined;
+                        let result;
                         if (compendiumName) {
-                            await rollCompendiumTable(compendiumName, terrainName, rollMode);
+                            result = await rollCompendiumTable(compendiumName, terrainName, rollMode, displayChat);
                         } else {
-                            await rollWorldTable(rollTableName, rollMode);
+                            result = await rollWorldTable(rollTableName, rollMode, displayChat);
+                        }
+                        if (customRender) {
+                            await customRender(result);
                         }
                     }
                 },
