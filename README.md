@@ -42,6 +42,6 @@ Activate the module in FoundryVTT.
 
 PS: I'm a developer first and foremost and my art skills are pretty bad ;)
 
-* Book 1: not included, use take a look at [https://foundryvtt.com/packages/qftff-maps-remake](https://foundryvtt.com/packages/qftff-maps-remake) instead
+* Book 1: not included, use [https://foundryvtt.com/packages/qftff-maps-remake](https://foundryvtt.com/packages/qftff-maps-remake) instead
 * Book 2: complete
-* Book 3: work in progress
+* Book 3: complete
