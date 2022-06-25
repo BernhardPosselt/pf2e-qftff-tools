@@ -11,6 +11,7 @@
   ],
   "url": "https://github.com/BernhardPosselt/pf2e-qftff",
   "license": "LICENSE",
+  "styles": ["styles/style.css"],
   "packs": [
     {
       "name": "burning-tundra-maps",

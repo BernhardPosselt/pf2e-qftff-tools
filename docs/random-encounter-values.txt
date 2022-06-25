@@ -1,0 +1,64 @@
+Barkblood's Spawn [[/r {1d4-1,1}kh]] @Compendium[pf2e.quest-for-the-frozen-flame-bestiary.cnTAIcjKu01I7eJ0]{Arboreal Tar Tree}
+
+Bitter opossum @Compendium[pf2e.pathfinder-bestiary-3.8S088wbZjUhx6IB7]{Khravgodon}
+
+Dripping tar @Compendium[pf2e.hazards.LLPsEKLoVmoPleJS]{Green Slime}
+
+Druid’s cave* @Compendium[pf2e.hazards.H8CPGJn81JSTCRNx]{Polymorph Trap} @Compendium[pf2e.equipment-srd.ewzJzyJ4Vo9lZKvp]{Iron Medallion}
+
+Famine Daemon* @Compendium[pf2e.pathfinder-bestiary-2.ytsHNgRwLzabsrZt]{Meladaemon}
+
+Forest trickster* @Compendium[pf2e.pathfinder-bestiary-3.HObVT8aJnsx5nnqu]{Tikbalang}
+
+Forest wardens [[/r 1d4+2]] @Compendium[pf2e.pathfinder-bestiary-3.dniiLeUhXaq5CElX]{Arboreal Reaper}
+
+Frozen Hut* @Compendium[pf2e.equipment-srd.TgZdamADHuaKyriW]{Elemental Gem}
+
+Graveyard Guardian* @Compendium[pf2e.pathfinder-bestiary-3.zGtfiKku0td5E0VJ]{Fossil Golem}
+
+Hibernating Bears @Compendium[pf2e.pathfinder-bestiary.b8NQkby4QV4uOqFT]{Cave Bear}
+
+Hodag Horde* 8 @Compendium[pf2e.pathfinder-bestiary-2.1QWZDaBoefL5rWkz]{Hodag}
+
+Howling Winds @Check[type:will|dc:26] fatigued on failure
+
+Hyaenodons [[/r 3d6]] @Compendium[pf2e.pathfinder-bestiary.VcUdFYNaxauNr5Hn]{Hyaenodon}
+
+Impenetrable Fog @Check[type:fortitude|dc:24] or sickened 1
+
+Jealous Abjurer* @Compendium[pf2e.hazards.inUlZWE1isqnTRc5]{Jealous Abjurer}
+
+Last Words* @Check[type:perception|dc:24|name:to notice]
+
+Mated Pair* 2 @Compendium[pf2e.pathfinder-bestiary-2.zzu3q9m4kJzgnNfl]{Black Dracolisk}
+
+Mendevian Ghosts [[/r {1d4-1,1}kh]] @Compendium[pf2e.pathfinder-bestiary.4p07SH4zdmVZ405I]{Graveknight} or [[/r {1d4-1,1}kh]]  @Compendium[pf2e.pathfinder-bestiary-2.ZGEf08j9q4fIPDFd]{Dread Wraith}
+
+Methane Flue @Compendium[pf2e.quest-for-the-frozen-flame-bestiary.anIBNgbHN3jG4iph]{Methane Flue}
+
+Restless Hunters [[/r {1d4-1,1}kh]] @Compendium[pf2e.pathfinder-bestiary-3.an7tww93Y4pQ8HP6]{Baykok}
+
+Mound of Skulls @Check[type:perception|dc:28|name:to notice] or risk toppling unless @Check[type:reflex|dc:25] @Compendium[pf2e.pathfinder-bestiary-3.aX0zhmJGzpnwCwMr]{Feral Skull Swarm}
+
+Stone Witch @Compendium[pf2e.quest-for-the-frozen-flame-bestiary.kxO7gXbpcmY1pi7p]{Calcifda}
+
+Tar Pit @Compendium[pf2e.quest-for-the-frozen-flame-bestiary.kJlIPynpcH61F9Am]{Tar Pit}
+
+Tamarnian Ooze @Compendium[pf2e.quest-for-the-frozen-flame-bestiary.RuVQUpUOLAE2x2tY]{Tar Ooze} [[/r 1d2]] @Compendium[pf2e.quest-for-the-frozen-flame-bestiary.L3PGythRjyCdM322]{Tar Zombie Predator}
+
+Tar Slide @Check[type:reflex|dc:26|name:Basic Reflex] [[/r {5d6}[bludgeoning]]]
+
+Thunderbird* @Compendium[pf2e.pathfinder-bestiary-2.fpBJiCOoHDlefgpO]{Thunderbird}
+
+Toxic Stream @Compendium[pf2e.equipment-srd.ca2lzxfJxvuLDrKu]{Lich Dust}
+
+Will-o'-wisps [[/r {1d4-1,1}kh]] @Compendium[pf2e.pathfinder-bestiary.wRQ7TZdd0n5UIIao]{Will-o'-Wisp}
+
+Witchfires [[/r {1d4-1,1}kh]] @Compendium[pf2e.pathfinder-bestiary-2.6xioRweZ0T4o4X9e]{Witchfire}
+
+Yellow Mold @Compendium[pf2e.hazards.A93flWUsot3FmC7t]{Yellow Mold}
+
+Zombies [[/r 1d4+1]] @Compendium[pf2e.quest-for-the-frozen-flame-bestiary.Z637TaszmZsJTmBZ]{Tar Zombie Snatcher}
+
+Zombie Mammoths [[/r {1d4-1,1}kh]] @Compendium[pf2e.quest-for-the-frozen-flame-bestiary.0KrkQLsLX2PPUus7]{Zombie Mammoths}
+

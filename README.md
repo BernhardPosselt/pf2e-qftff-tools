@@ -28,6 +28,10 @@ Activate the module in FoundryVTT.
   
   ![Macro](./docs/img/burning-tundra-random-encounter-macro.png)
 
+* A macro to check off random encounters for Burning Tundra that should only happen once
+
+  ![Macro](./docs/img/encounter-checklist.png)
+
 * A macro to roll random encounters from the GMG
 
   ![Macro](./docs/img/hexploration-random-encounter-macro.png)

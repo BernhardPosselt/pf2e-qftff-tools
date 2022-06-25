@@ -1,4 +1,8 @@
-import {burningTundraEncountersMacro} from "./burning-tundra.mjs";
+import {
+    burningTundraEncountersMacro,
+    onlyHappensOnceEncounterDefaults,
+    showBurningTundraEncounterChecklist
+} from "./burning-tundra.mjs";
 import {hexplorationEncountersMacro} from "./hexploration.mjs";
 
 Hooks.on('init', () => {
@@ -6,6 +10,7 @@ Hooks.on('init', () => {
         macros: {
             burningTundraEncountersMacro,
             hexplorationEncountersMacro,
+            showBurningTundraEncounterChecklist,
         }
     }
 
@@ -30,4 +35,14 @@ Hooks.on('init', () => {
             selfroll: "Self Roll"
         }
     });
+    Object.entries(onlyHappensOnceEncounterDefaults)
+        .forEach(([key, value]) => {
+            game.settings.register("pf2e-qftff-tools", `burningTundraEncounter.${key}`, {
+                name: `Encounter Checklist: ${key}`,
+                type: Boolean,
+                default: false,
+                scope: "world",
+                config: true,
+            });
+        });
 });
