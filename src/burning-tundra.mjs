@@ -78,12 +78,6 @@ class CompletedEncounterChecklist extends FormApplication {
     _updateObject(_event, formData) {
         checklist.setChecklist(formData);
     }
-
-    activateListeners($form) {
-        $form.find('#reset-checklist').on("click", (event) => {
-            this.submit({updateData: onlyHappensOnceEncounterDefaults});
-        });
-    }
 }
 
 export function showBurningTundraEncounterChecklist() {
