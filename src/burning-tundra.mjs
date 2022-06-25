@@ -91,9 +91,10 @@ export function showBurningTundraEncounterChecklist() {
 }
 
 export function burningTundraEncountersMacro() {
+    const rollMode = game.settings.get('pf2e-qftff-tools', 'randomEncounterRollMode');
     showPopup({
         title: 'Burning Tundra Random Encounter',
-        rollMode: game.settings.get('pf2e-qftff-tools', 'randomEncounterRollMode'),
+        rollMode,
         compendiumName: 'pf2e-qftff-tools.burning-tundra-random-encounters',
         terrainTypes,
         travelMethods,
@@ -107,7 +108,7 @@ export function burningTundraEncountersMacro() {
             if (checkedOffValue) {
                 results[0].data.text = `${checkedOffValue} already happened, nothing happens!`;
             }
-            await table.toMessage(results, {roll: draw.roll});
+            await table.toMessage(results, {roll: draw.roll, messageData: {rollMode}});
         }
     });
 }
