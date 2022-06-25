@@ -8,7 +8,7 @@ set -e
 version="$1"
 
 # create directories
-rm -r ./build
+rm -fr ./build
 mkdir -p build/pf2e-qftff-tools/
 
 # update manifest file
