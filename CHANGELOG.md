@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.6] - 2022-06-26
+### Fixed
+
+* Do not ask about changing manifest file in the future
+
 ## [0.0.5] - 2022-06-26
 ### Added
 
