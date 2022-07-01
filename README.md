@@ -16,6 +16,8 @@ Clone this repository into your installation's module folder:
 
     cd ~/.local/share/FoundryVTT/Data/modules
     git clone https://github.com/BernhardPosselt/pf2e-qftff-tools.git 
+    yarn install
+    yarn run build
 
 Activate the module in FoundryVTT.
 
@@ -35,6 +37,32 @@ Activate the module in FoundryVTT.
 * A macro to roll random encounters from the GMG
 
   ![Macro](./docs/img/hexploration-random-encounter-macro.png)
+
+* A macro to roll Shadow Plane encounters
+
+### Daily Weather
+
+Rolls daily weather, animates weather on maps and starts playlists.
+
+Visual effects rely on [FxMaster](https://foundryvtt.com/packages/fxmaster).
+
+First configure the **Weather Roll Table** in settings. The name needs to be the same as an existing roll table in your game.
+
+The roll table itself can have the following values:
+
+* sunny
+* rain
+* heavyRain
+* fog
+* heavyFog
+* storm
+* snowfall
+* snowstorm
+* clouds
+
+Then optionally create playlists with the name **weather.NAME**, where NAME is one of the roll table values, e.g. **weather.clouds** for clouds.
+
+Each day, a new value is rolled from the roll table and persisted across all scenes.
 
 ### Maps
 

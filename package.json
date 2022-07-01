@@ -1,0 +1,24 @@
+{
+  "name": "pf2e-qftff",
+  "version": "1.0.0",
+  "main": " dist/index.js",
+  "repository": "git@github.com:BernhardPosselt/pf2e-qftff-tools.git",
+  "author": "Bernhard Posselt <bernhard@posselt.at>",
+  "license": "AGPL3",
+  "private": true,
+  "scripts": {
+    "build": "tsc --project .",
+    "watch": "tsc --project . --watch",
+    "clean": "rm -rf dist/",
+    "lint": "eslint src",
+    "lint:fix": "eslint --fix src"
+  },
+  "devDependencies": {
+    "@league-of-foundry-developers/foundry-vtt-types": "^9.269.0",
+    "@types/luxon": "^2.3.2",
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "@typescript-eslint/parser": "^5.30.0",
+    "eslint": "^8.18.0",
+    "typescript": "^4.7.4"
+  }
+}

@@ -6,11 +6,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.7] - 2022-07-01
 
-## [0.0.6] - 2022-06-26
 ### Changed
 
-* Remove reset button for checklist to not accidentally lose data
+* Migrate to TypeScript and add Eslint
+* Print Flat DC to chat when rolling check
+
+### Added
+
+* Add optional daily weather roll tables that sets scene weather using FxMaster and plays playlists for ambient sounds
+* Add Shadow Plane Encounters Roll Table & Macro
 
 ## [0.0.6] - 2022-06-26
 ### Fixed

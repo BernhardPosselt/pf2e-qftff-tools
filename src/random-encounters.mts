@@ -1,28 +1,19 @@
-async function rollCompendiumTable(compendiumName, tableName, rollMode, displayChat) {
-    const compendium = await game.packs.get(compendiumName, {strict: true});
-    const documents = await compendium.getDocuments({});
-    const table = documents.find(document => document.name === tableName);
-    return {
-        table,
-        draw: await table.draw({rollMode, displayChat})
-    };
+import {RollMode} from './settings.mjs';
+import {rollRollTable, RollTableResult} from './roll-tables.mjs';
+
+export interface OptionValue {
+    name: string;
+    value: number;
 }
 
-async function rollWorldTable(tableName, rollMode, displayChat) {
-    const table = game.tables?.getName(tableName);
-    return {
-        table,
-        draw: await table.draw({rollMode, displayChat})
-    };
-}
 
-function renderOptions(options, lastSelectedIndex) {
+function renderOptions(options: OptionValue[], lastSelectedIndex: number): string {
     return options.map(({name, value}, index) => {
         const element = document.createElement('option');
         if (index === lastSelectedIndex) {
             element.setAttribute('selected', 'selected');
         }
-        element.value = value;
+        element.value = `${value}`;
         element.innerText = name;
         return element.outerHTML;
     }).join('\n');
@@ -34,8 +25,13 @@ function renderTemplate(
         travelMethods,
         selectedTerrainIndex,
         selectedMethodIndex,
+    }: {
+        terrainTypes: OptionValue[];
+        travelMethods: OptionValue[];
+        selectedTerrainIndex: number;
+        selectedMethodIndex: number;
     }
-) {
+): string {
     return `
     <form>
     <div class="form-group">
@@ -54,23 +50,33 @@ function renderTemplate(
     `;
 }
 
-function getLastSelectedIndex(name) {
-    return parseInt(localStorage.getItem(name) ?? 0, 10);
+function getLastSelectedIndex(name: string): number {
+    return parseInt(localStorage.getItem(name) ?? '0', 10);
 }
 
 export function showPopup(
     {
         title,
         rollMode,
-        compendiumName,
         terrainTypes,
         travelMethods,
         terrainTypesKey,
         travelMethodKey,
-        rollTableName,
+        rollTablesUuids,
         customRender,
+        game,
+    }: {
+        title: string;
+        rollMode: RollMode;
+        rollTablesUuids: Record<string, string> | string,
+        terrainTypes: OptionValue[];
+        travelMethods: OptionValue[];
+        terrainTypesKey: string;
+        travelMethodKey: string;
+        customRender?: (result: RollTableResult) => Promise<void>;
+        game: Game;
     }
-) {
+): void {
     const tpl = renderTemplate({
         terrainTypes,
         travelMethods,
@@ -88,27 +94,25 @@ export function showPopup(
             yes: {
                 icon: '<i class="fa-solid fa-dice-d20"></i>',
                 label: 'Roll',
-                callback: async ($html) => {
-                    const terrain = $html[0].querySelector('select[name="terrain"]');
+                callback: async (html): Promise<void> => {
+                    const $html = html as HTMLElement;
+                    const terrain = $html.querySelector('select[name="terrain"]') as HTMLSelectElement;
                     const terrainName = terrain.options[terrain.selectedIndex].text;
-                    const method = $html[0].querySelector('select[name="method"]');
-                    localStorage.setItem(terrainTypesKey, terrain.selectedIndex)
-                    localStorage.setItem(travelMethodKey, method.selectedIndex)
+                    const method = $html.querySelector('select[name="method"]') as HTMLSelectElement;
+                    localStorage.setItem(terrainTypesKey, `${terrain.selectedIndex}`);
+                    localStorage.setItem(travelMethodKey, `${method.selectedIndex}`);
 
                     const flatDC = parseInt(terrain.value, 10) ?? 1;
                     const dcIncrease = parseInt(method.value, 10) ?? 0;
 
                     const dc = flatDC + dcIncrease;
-                    const dieRoll = await new Roll("1d20").evaluate();
-                    await dieRoll.toMessage(undefined, {rollMode});
-                    if (dieRoll.result >= dc) {
+                    const flavor = `Rolling Random Encounter for terrain ${terrainName} with Flat DC ${dc}`;
+                    const dieRoll = await new Roll('1d20').evaluate();
+                    await dieRoll.toMessage({flavor}, {rollMode});
+                    if (dieRoll.total >= dc) {
                         const displayChat = customRender === undefined;
-                        let result;
-                        if (compendiumName) {
-                            result = await rollCompendiumTable(compendiumName, terrainName, rollMode, displayChat);
-                        } else {
-                            result = await rollWorldTable(rollTableName, rollMode, displayChat);
-                        }
+                        const rollTableUuid = typeof rollTablesUuids === 'string' ? rollTablesUuids : rollTablesUuids[terrainName];
+                        const result = await rollRollTable(game, rollTableUuid, {rollMode, displayChat});
                         if (customRender) {
                             await customRender(result);
                         }
@@ -117,10 +121,12 @@ export function showPopup(
             },
         },
         default: 'yes',
+    }, {
+        jQuery: false,
     }).render(true);
 }
 
-export const travelMethods = [
+export const travelMethods: OptionValue[] = [
     {name: 'By Foot', value: 0},
     {name: 'Road or River', value: -2},
     {name: 'Flying', value: 3},

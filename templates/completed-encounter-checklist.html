@@ -1,5 +1,5 @@
 <form autocomplete="off">
-    {{#each checklist as |value key|}}
+    {{#each object as |value key|}}
     <div>
         <label>
             <input type="checkbox" name="{{key}}" data-dtype="Boolean" {{checked value}}> {{key}}

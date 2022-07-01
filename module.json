@@ -7,7 +7,7 @@
   "minimumCoreVersion": "9",
   "compatibleCoreVersion": "9.269",
   "esmodules": [
-    "src/index.mjs"
+    "dist/index.mjs"
   ],
   "url": "https://github.com/BernhardPosselt/pf2e-qftff",
   "license": "LICENSE",

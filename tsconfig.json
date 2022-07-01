@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "types": ["@league-of-foundry-developers/foundry-vtt-types"],
+    "lib": ["dom"],
+    "target": "ES2022",
+    "module": "NodeNext",
+    "allowJs": false,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "rootDir": "src/",
+    "outDir": "dist/"
+  },
+  "include": ["src/"]
+}
