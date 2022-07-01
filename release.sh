@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
-# Run with ./release.sh 0.0.2
-# requires zip and yarn
+# Run with ./release.sh 0.0.2 GITHUB_TOKEN
+# requires zip, curl and yarn
 
 set -e
 
 version="$1"
+token="$2"
 
 yarn run lint
 yarn run clean
@@ -26,3 +27,13 @@ cp -r packs/ maps/ templates/ styles/ dist/ build/pf2e-qftff-tools/
 cd build
 zip -r release.zip pf2e-qftff-tools
 cd -
+
+# push new code
+git add module.json
+git commit -m "Release $version"
+git tag "$version"
+git push --tags
+
+# upload release zip
+curl -X POST -H "Accept: application/vnd.github.v3+json" -H "Authorization: token $token" "https://api.github.com/repos/BernhardPosselt/pf2e-qftff-tools/releases" -d '{"tag_name":"$version","target_commitish":"master","name":"$version","body":"","draft":false,"prerelease":false,"generate_release_notes":false}'
+curl -X POST -H "Accept: application/vnd.github.v3+json" -H "Authorization: token $token" -H "Content-Type: application/zip" "https://api.github.com/repos/BernhardPosselt/pf2e-qftff-tools/releases/$version/assets" --data-binary "@build/release.zip"
