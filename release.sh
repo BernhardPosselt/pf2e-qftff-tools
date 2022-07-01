@@ -12,7 +12,7 @@ yarn run clean
 yarn run build
 
 # create release directories
-rm -r ./build
+rm -rf ./build
 mkdir -p build/pf2e-qftff-tools/
 
 # update manifest file

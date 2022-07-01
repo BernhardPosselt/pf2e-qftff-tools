@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * Migrate to TypeScript and add Eslint
 * Print Flat DC to chat when rolling check
+* Remove reset button for checklist to not accidentally lose data
 
 ### Added
 
