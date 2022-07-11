@@ -1,4 +1,4 @@
-import {getBooleanSetting} from './settings.mjs';
+import {getBooleanSetting} from './settings';
 
 type Checklist = Record<string, boolean>;
 

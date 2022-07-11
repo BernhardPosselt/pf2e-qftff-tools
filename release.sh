@@ -36,5 +36,4 @@ git push --tags
 
 # upload release zip
 id=$(curl --no-progress-meter -X POST -H "Accept: application/vnd.github.v3+json" -H "Authorization: token $token" "https://api.github.com/repos/BernhardPosselt/pf2e-qftff-tools/releases" -d "{\"tag_name\":\"$version\",\"target_commitish\":\"master\",\"name\":\"$version\",\"body\":\"\",\"draft\":false,\"prerelease\":false,\"generate_release_notes\":false}" | jq ".id")
-echo "https://api.github.com/repos/BernhardPosselt/pf2e-qftff-tools/releases/$id/assets"
 curl -X POST -H "Accept: application/vnd.github.v3+json" -H "Authorization: token $token" -H "Content-Type: application/zip" "https://uploads.github.com/repos/BernhardPosselt/pf2e-qftff-tools/releases/$id/assets?name=release.zip" --data-binary "@build/release.zip"

@@ -1,5 +1,5 @@
-import {RollMode} from './settings.mjs';
-import {rollRollTable, RollTableResult} from './roll-tables.mjs';
+import {RollMode} from './settings';
+import {rollRollTable, RollTableResult} from './roll-tables';
 
 export interface OptionValue {
     name: string;

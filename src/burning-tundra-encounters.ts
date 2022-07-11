@@ -1,7 +1,7 @@
-import {showPopup, travelMethods} from './random-encounters.mjs';
-import {buildUuids, RollTableResult} from './roll-tables.mjs';
-import {getRollMode} from './settings.mjs';
-import {CompletedEncounterStorage} from './burning-tundra-checklist.mjs';
+import {showPopup, travelMethods} from './random-encounters';
+import {buildUuids, RollTableResult} from './roll-tables';
+import {getRollMode} from './settings';
+import {CompletedEncounterStorage} from './burning-tundra-checklist';
 
 const terrainTypes = [
     {name: 'Barren Plains', value: 21},  // no encounters, 21+ can never be rolled

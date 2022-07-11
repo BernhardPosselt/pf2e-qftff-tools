@@ -1,6 +1,6 @@
 import {DateTime} from 'luxon';
 import {RollTableDraw} from '@league-of-foundry-developers/foundry-vtt-types/src/foundry/client/data/documents/table';
-import {FxMaster, WeatherEffects} from './fxmaster.mjs';
+import {FxMaster, WeatherEffects} from './fxmaster';
 
 declare global {
     interface Game {

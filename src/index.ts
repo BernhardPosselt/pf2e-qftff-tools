@@ -1,10 +1,10 @@
-import {burningTundraEncountersMacro} from './burning-tundra-encounters.mjs';
-import {hexplorationEncountersMacro} from './hexploration-encounters.mjs';
-import {rollWeather, syncWeather} from './weather.mjs';
-import {getWorldTableUuidMappings} from './roll-tables.mjs';
-import {onlyHappensOnceEncounterDefaults, showBurningTundraEncounterChecklist} from './burning-tundra-checklist.mjs';
-import {shadowPlaneEncountersMacro} from './shadow-plane-encounters.mjs';
-import {isGm} from './utils.mjs';
+import {burningTundraEncountersMacro} from './burning-tundra-encounters';
+import {hexplorationEncountersMacro} from './hexploration-encounters';
+import {rollWeather, syncWeather} from './weather';
+import {getWorldTableUuidMappings} from './roll-tables';
+import {onlyHappensOnceEncounterDefaults, showBurningTundraEncounterChecklist} from './burning-tundra-checklist';
+import {shadowPlaneEncountersMacro} from './shadow-plane-encounters';
+import {isGm} from './utils';
 
 Hooks.on('ready', async () => {
     if (game instanceof Game) {

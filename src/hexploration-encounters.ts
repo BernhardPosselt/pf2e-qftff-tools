@@ -1,5 +1,5 @@
-import {OptionValue, showPopup, travelMethods} from './random-encounters.mjs';
-import {getRollMode, getStringSetting} from './settings.mjs';
+import {OptionValue, showPopup, travelMethods} from './random-encounters';
+import {getRollMode, getStringSetting} from './settings';
 
 const terrainTypes: OptionValue[] = [
     {name: 'Aquatic', value: 17},

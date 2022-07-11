@@ -1,6 +1,6 @@
-import {getRollMode, getStringSetting} from './settings.mjs';
-import {FxFilterEffect, WeatherEffects} from './fxmaster.mjs';
-import {rollRollTable} from './roll-tables.mjs';
+import {getRollMode, getStringSetting} from './settings';
+import {FxFilterEffect, WeatherEffects} from './fxmaster';
+import {rollRollTable} from './roll-tables';
 
 function dayHasChanged(game: Game, deltaInSeconds: number): boolean {
     const now = game.pf2e.worldClock.worldTime;

@@ -1,5 +1,5 @@
-import {getRollMode} from './settings.mjs';
-import {buildUuids, rollRollTable} from './roll-tables.mjs';
+import {getRollMode} from './settings';
+import {buildUuids, rollRollTable} from './roll-tables';
 
 export async function shadowPlaneEncountersMacro(game: Game): Promise<void> {
     const rollMode = getRollMode(game, 'randomEncounterRollMode');
