@@ -9,6 +9,7 @@ version="$1"
 token="$2"
 
 yarn run lint
+yarn run test
 yarn run clean
 yarn run build
 
