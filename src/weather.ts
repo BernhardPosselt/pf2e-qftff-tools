@@ -1,4 +1,4 @@
-import {getRollMode, getStringSetting} from './settings';
+import {getBooleanSetting, getRollMode, getStringSetting} from './settings';
 import {FxFilterEffect, WeatherEffects} from './fxmaster';
 import {rollRollTable} from './roll-tables';
 
@@ -16,7 +16,7 @@ export async function rollWeather(game: Game, deltaInSeconds: number): Promise<v
             const {draw} = await rollRollTable(game, weatherTable, {rollMode});
             const {results} = draw;
             const text = results[0].data.text;
-            await setWeatherEffect(game, text);
+            await setWeather(game, text);
         } else {
             console.info('No roll table configured, not rolling weather');
         }
@@ -86,28 +86,34 @@ async function applyWeatherSound(game: Game, effectName: string): Promise<void> 
     }
 }
 
-async function setWeatherEffect(game: Game, effectName: string): Promise<void> {
-    console.info(`Setting weather to ${effectName}`);
-    game.settings.set('pf2e-qftff-tools', 'currentWeatherFx', effectName);
-    await applyWeatherSound(game, effectName);
-    if (effectName === 'storm') {
-        applyWeatherEffects(['lightning', 'fog', 'heavyRain']);
-    } else if (effectName === 'rain') {
-        applyWeatherEffects(['rain']);
-    } else if (effectName === 'heavyRain') {
-        applyWeatherEffects(['heavyRain', 'fog']);
-    } else if (effectName === 'snowfall') {
-        applyWeatherEffects(['snowstorm']);
-    } else if (effectName === 'snowstorm') {
-        applyWeatherEffects(['snowstorm', 'heavyFog']);
-    } else if (effectName === 'clouds') {
-        applyWeatherEffects(['clouds']);
-    } else if (effectName === 'heavyFog') {
-        applyWeatherEffects(['heavyFog']);
-    } else if (effectName === 'fog') {
-        applyWeatherEffects(['fog']);
+async function setWeather(game: Game, effectName: string): Promise<void> {
+    if (getBooleanSetting(game, 'enableWeather')) {
+        console.info(`Setting weather to ${effectName}`);
+        await game.settings.set('pf2e-qftff-tools', 'currentWeatherFx', effectName);
+        await applyWeatherSound(game, effectName);
+        if (effectName === 'storm') {
+            applyWeatherEffects(['lightning', 'fog', 'heavyRain']);
+        } else if (effectName === 'rain') {
+            applyWeatherEffects(['rain']);
+        } else if (effectName === 'heavyRain') {
+            applyWeatherEffects(['heavyRain', 'fog']);
+        } else if (effectName === 'snowfall') {
+            applyWeatherEffects(['snowstorm']);
+        } else if (effectName === 'snowstorm') {
+            applyWeatherEffects(['snowstorm', 'heavyFog']);
+        } else if (effectName === 'clouds') {
+            applyWeatherEffects(['clouds']);
+        } else if (effectName === 'heavyFog') {
+            applyWeatherEffects(['heavyFog']);
+        } else if (effectName === 'fog') {
+            applyWeatherEffects(['fog']);
+        } else {
+            applyWeatherEffects(['sunny']);
+        }
     } else {
         applyWeatherEffects(['sunny']);
+        await applyWeatherSound(game, 'sunny');
+        console.info('Weather is disabled, setting to sunny');
     }
 }
 
@@ -117,5 +123,11 @@ async function setWeatherEffect(game: Game, effectName: string): Promise<void> {
  */
 export async function syncWeather(game: Game): Promise<void> {
     const weather = getStringSetting(game, 'currentWeatherFx');
-    await setWeatherEffect(game, weather);
+    await setWeather(game, weather);
+}
+
+export async function toggleWeather(game: Game): Promise<void> {
+    const isEnabled = !getBooleanSetting(game, 'enableWeather');
+    await game.settings.set('pf2e-qftff-tools', 'enableWeather', isEnabled);
+    await syncWeather(game);
 }

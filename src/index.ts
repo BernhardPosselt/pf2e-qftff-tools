@@ -1,6 +1,6 @@
 import {burningTundraEncountersMacro} from './burning-tundra-encounters';
 import {hexplorationEncountersMacro} from './hexploration-encounters';
-import {rollWeather, syncWeather} from './weather';
+import {rollWeather, syncWeather, toggleWeather} from './weather';
 import {getWorldTableUuidMappings} from './roll-tables';
 import {onlyHappensOnceEncounterDefaults, showBurningTundraEncounterChecklist} from './burning-tundra-checklist';
 import {shadowPlaneEncountersMacro} from './shadow-plane-encounters';
@@ -14,6 +14,7 @@ Hooks.on('ready', async () => {
                 burningTundraEncountersMacro: burningTundraEncountersMacro.bind(null, game),
                 hexplorationEncountersMacro: hexplorationEncountersMacro.bind(null, game),
                 shadowPlaneEncountersMacro: shadowPlaneEncountersMacro.bind(null, game),
+                toggleWeatherMacro: toggleWeather.bind(null, game),
                 showBurningTundraEncounterChecklist,
             },
         };
@@ -43,6 +44,13 @@ Hooks.on('ready', async () => {
             default: 'gmroll',
             type: String,
             choices: rollModeChoices,
+        });
+        gameInstance.settings.register<string, string, boolean>('pf2e-qftff-tools', 'enableWeather', {
+            name: 'Enable Weather',
+            default: true,
+            config: true,
+            type: Boolean,
+            scope: 'world',
         });
         gameInstance.settings.register<string, string, string>('pf2e-qftff-tools', 'weatherTable', {
             name: 'Weather Table Name',
