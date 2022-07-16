@@ -5,6 +5,7 @@ import {getWorldTableUuidMappings} from './roll-tables';
 import {onlyHappensOnceEncounterDefaults, showBurningTundraEncounterChecklist} from './burning-tundra-checklist';
 import {shadowPlaneEncountersMacro} from './shadow-plane-encounters';
 import {isGm} from './utils';
+import {toTimeOfDayMacro} from './time/app';
 
 Hooks.on('ready', async () => {
     if (game instanceof Game) {
@@ -15,6 +16,7 @@ Hooks.on('ready', async () => {
                 hexplorationEncountersMacro: hexplorationEncountersMacro.bind(null, game),
                 shadowPlaneEncountersMacro: shadowPlaneEncountersMacro.bind(null, game),
                 toggleWeatherMacro: toggleWeather.bind(null, game),
+                toTimeOfDayMacro: toTimeOfDayMacro.bind(null, game),
                 showBurningTundraEncounterChecklist,
             },
         };

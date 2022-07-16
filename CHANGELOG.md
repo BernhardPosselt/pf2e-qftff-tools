@@ -6,9 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.9] - 2022-07-16
+
 ### Added
 
 * Add Macro to toggle weather; this can be useful for turning off weather when entering a dungeon and re-enabling it once you leave it
+* Add macro to advance/retract to a time of day
 
 ## [0.0.8] - 2022-07-01
 
