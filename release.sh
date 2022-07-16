@@ -33,6 +33,7 @@ cd -
 git add module.json
 git commit -m "Release $version"
 git tag "$version"
+git push
 git push --tags
 
 # upload release zip
