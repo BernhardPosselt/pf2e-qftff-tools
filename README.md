@@ -40,6 +40,10 @@ Activate the module in FoundryVTT.
 
 * A macro to roll Shadow Plane encounters
 
+* A macro to toggle weather on/off to change into non exposed areas
+ 
+* A macro to advance/retract to a certain day of time
+
 ### Daily Weather
 
 Rolls daily weather, animates weather on maps and starts playlists.
