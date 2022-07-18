@@ -6,14 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.0.10] - 2022-07-18
+## [0.0.11] - 2022-07-18
 
 ### Added
 
 * Add B48 map for Lost Mammoth Valley
 
 
-## [0.0.9] - 2022-07-16
+## [0.0.10] - 2022-07-16
 
 ### Fixed
 
