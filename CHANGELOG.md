@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.12] - 2022-07-18
+
+### Fixed
+
+* Roll 2 random encounters on a critical success as described in the hexploration random encounter rules
+
 ## [0.0.11] - 2022-07-18
 
 ### Added

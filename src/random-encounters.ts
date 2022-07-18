@@ -1,5 +1,6 @@
 import {RollMode} from './settings';
 import {rollRollTable, RollTableResult} from './roll-tables';
+import {DegreeOfSuccess, determineDegreeOfSuccess} from './degree-of-success';
 
 export interface OptionValue {
     name: string;
@@ -52,6 +53,13 @@ function renderTemplate(
 
 function getLastSelectedIndex(name: string): number {
     return parseInt(localStorage.getItem(name) ?? '0', 10);
+}
+
+async function rollRandomEncounter(game: Game, rollTableUuid: string, rollMode: RollMode, displayChat: boolean, customRender?: (result: RollTableResult) => Promise<void>): Promise<void> {
+    const result = await rollRollTable(game, rollTableUuid, {rollMode, displayChat});
+    if (customRender) {
+        await customRender(result);
+    }
 }
 
 export function showPopup(
@@ -109,13 +117,15 @@ export function showPopup(
                     const flavor = `Rolling Random Encounter for terrain ${terrainName} with Flat DC ${dc}`;
                     const dieRoll = await new Roll('1d20').evaluate();
                     await dieRoll.toMessage({flavor}, {rollMode});
-                    if (dieRoll.total >= dc) {
-                        const displayChat = customRender === undefined;
-                        const rollTableUuid = typeof rollTablesUuids === 'string' ? rollTablesUuids : rollTablesUuids[terrainName];
-                        const result = await rollRollTable(game, rollTableUuid, {rollMode, displayChat});
-                        if (customRender) {
-                            await customRender(result);
-                        }
+                    const displayChat = customRender === undefined;
+                    const rollTableUuid = typeof rollTablesUuids === 'string' ? rollTablesUuids : rollTablesUuids[terrainName];
+                    const degreeOfSuccess = determineDegreeOfSuccess(dieRoll.total, dieRoll.total, dc);
+
+                    if (degreeOfSuccess === DegreeOfSuccess.SUCCESS) {
+                        await rollRandomEncounter(game, rollTableUuid, rollMode, displayChat, customRender);
+                    } else if (degreeOfSuccess === DegreeOfSuccess.CRITICAL_SUCCESS) {
+                        await rollRandomEncounter(game, rollTableUuid, rollMode, displayChat, customRender);
+                        await rollRandomEncounter(game, rollTableUuid, rollMode, displayChat, customRender);
                     }
                 },
             },
