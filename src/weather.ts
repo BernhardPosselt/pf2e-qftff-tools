@@ -15,7 +15,8 @@ export async function rollWeather(game: Game, deltaInSeconds: number): Promise<v
         if (weatherTable) {
             const {draw} = await rollRollTable(game, weatherTable, {rollMode});
             const {results} = draw;
-            const text = results[0].data.text;
+            const tableResult = results[0] as any;   // FIXME: remove cast once v10 TS types are available
+            const text = tableResult.text;
             await setWeather(game, text);
         } else {
             console.info('No roll table configured, not rolling weather');
@@ -56,7 +57,7 @@ function applyWeatherEffects(effectNames: FxType[]): void {
                 weather: [...prev.weather, ...cur.weather],
             }), {filter: [], weather: []}) as FXMasterConfig;
         fxMaster.filters.setFilters(changes.filter);
-        Hooks.call('fxmaster.updateWeather', changes.weather);
+        Hooks.call('fxmaster.updateParticleEffects', changes.weather);
     }
 }
 

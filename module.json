@@ -1,47 +1,60 @@
 {
-  "name": "pf2e-qftff-tools",
   "title": "Pathfinder - Quest for the Frozen Flame Tools",
   "description": "A collection of utilities to run Quest for the Frozen Flame",
-  "author": "Bernhard Posselt",
-  "version": "0.0.12",
-  "minimumCoreVersion": "9",
-  "compatibleCoreVersion": "9.269",
+  "version": "0.1.0",
   "scripts": [
     "dist/main.js"
   ],
   "url": "https://github.com/BernhardPosselt/pf2e-qftff",
   "license": "LICENSE",
-  "styles": ["styles/style.css"],
+  "styles": [
+    "styles/style.css"
+  ],
   "packs": [
     {
       "name": "burning-tundra-maps",
       "label": "Burning Tundra Maps",
       "path": "packs/burning-tundra-maps.db",
-      "entity": "Scene",
-      "type": "Scene"
+      "type": "Scene",
+      "private": false,
+      "flags": {}
     },
     {
       "name": "lost-mammoth-valley-maps",
       "label": "Lost Mammoth Valley Maps",
       "path": "packs/lost-mammoth-valley-maps.db",
-      "entity": "Scene",
-      "type": "Scene"
+      "type": "Scene",
+      "private": false,
+      "flags": {}
     },
     {
       "name": "burning-tundra-random-encounters",
       "label": "Burning Tundra Random Encounters",
       "path": "packs/burning-tundra-random-encounters.db",
-      "entity": "RollTable",
-      "type": "RollTable"
+      "type": "RollTable",
+      "private": false,
+      "flags": {}
     },
     {
       "name": "qftff-macros",
       "label": "Quest for the Frozen Flame Macros",
       "path": "packs/macros.db",
-      "entity": "Macro",
-      "type": "Macro"
+      "type": "Macro",
+      "private": false,
+      "flags": {}
     }
   ],
   "manifest": "https://raw.githubusercontent.com/BernhardPosselt/pf2e-qftff-tools/master/module.json",
-  "download": "https://github.com/BernhardPosselt/pf2e-qftff-tools/releases/download/0.0.12/release.zip"
+  "download": "https://github.com/BernhardPosselt/pf2e-qftff-tools/releases/download/0.1.0/release.zip",
+  "id": "pf2e-qftff-tools",
+  "authors": [
+    {
+      "name": "Bernhard Posselt",
+      "flags": {}
+    }
+  ],
+  "compatibility": {
+    "minimum": "10",
+    "maximum": "10"
+  }
 }

@@ -29,11 +29,13 @@ export async function burningTundraEncountersMacro(game: Game): Promise<void> {
         travelMethodKey: 'burningTundra.method',
         customRender: async ({table, draw}: RollTableResult) => {
             const {results} = draw;
-            const text = results[0].data.text;
+            console.log(results);
+            const tableResult = results[0] as any; // FIXME: remove cast once v10 TS types are available
+            const text = tableResult.text;
             const checkedOff = checklist.getCheckedOff();
             const checkedOffValue = checkedOff.find(checked => text.startsWith(checked));
             if (checkedOffValue) {
-                results[0].data.text = `${checkedOffValue} already happened, nothing happens!`;
+                tableResult.text = `${checkedOffValue} already happened, nothing happens!`;
             }
             await table.toMessage(results, {roll: draw.roll, messageOptions: {rollMode}});
         },

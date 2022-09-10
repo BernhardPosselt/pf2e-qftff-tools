@@ -24,11 +24,11 @@ declare global {
     }
 
     interface Hooks {
-        call<T extends WeatherEffects>(hook: 'fxmaster.switchWeather', parameter: {
+        call<T extends WeatherEffects>(hook: 'fxmaster.switchParticleEffects', parameter: {
             type: T['type'],
             name: string,
             options: T['options'],
         }): boolean;
-        call(hook: 'fxmaster.updateWeather', parameter: WeatherEffects[]): boolean;
+        call(hook: 'fxmaster.updateParticleEffects', parameter: WeatherEffects[]): boolean;
     }
 }
