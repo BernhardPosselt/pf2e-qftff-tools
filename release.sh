@@ -19,7 +19,7 @@ mkdir -p build/pf2e-qftff-tools/
 
 # update manifest file
 sed -i "s/\"version\":.*/\"version\": \"$version\",/g" module.json
-sed -i "s/\"download\":.*/\"download\": \"https:\/\/github.com\/BernhardPosselt\/pf2e-qftff-tools\/releases\/download\/$version\/release.zip\"/g" module.json
+sed -i "s/\"download\":.*/\"download\": \"https:\/\/github.com\/BernhardPosselt\/pf2e-qftff-tools\/releases\/download\/$version\/release.zip\",/g" module.json
 
 # create archive
 cp module.json build/pf2e-qftff-tools/module.json
