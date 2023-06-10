@@ -1,5 +1,7 @@
 # Quest for the Frozen Flame Tools (Unofficial)
 
+**Note**: This module is End of Life and will not be ported to V11 or later editions
+
 Tools for running book 3 of Quest for the Frozen Flame
 
 Uses the [Open Gaming License](./OpenGameLicense.md) and [CUP](https://paizo.com/community/communityuse)
